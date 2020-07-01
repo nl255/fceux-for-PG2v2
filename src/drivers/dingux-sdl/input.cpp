@@ -296,6 +296,7 @@ static void KeyboardCommands() {
 
 	// Power flick (SDLK_HOME) to enter GUI
 	if (_keyonly(DINGOO_L2)
+		|| _keyonly(SDLK_RCTRL)
 		|| MenuRequested) {
 		SilenceSound(1);
 		FCEUGUI_Run();
@@ -338,12 +339,12 @@ static void KeyboardCommands() {
 			g_config->setOption("SDL.ShowFPS", showfps);
 			resetkey(DINGOO_UP);
 		}
-		if(_keyonly(DINGOO_DOWN)) {// R + DOWN activate subtitle display (??) is this really needed
-			resetkey(DINGOO_DOWN);
-		}
-		if(_keyonly(DINGOO_LEFT)) { // R + LEFT  insert vsuini coin
-			if (gametype == GIT_VSUNI) FCEUI_VSUniCoin();
+		if(_keyonly(DINGOO_LEFT)) {// R + LEFT activate subtitle display (??) is this really needed
 			resetkey(DINGOO_LEFT);
+		}
+		if(_keyonly(DINGOO_DOWN)) { // R + DOWN  insert vsuini coin
+			if (gametype == GIT_VSUNI) FCEUI_VSUniCoin();
+			resetkey(DINGOO_DOWN);
 		}
 		if(_keyonly(DINGOO_RIGHT)) { // R + RIGHT  frame advancing (??)
 			resetkey(DINGOO_RIGHT);
@@ -446,7 +447,7 @@ static void KeyboardCommands() {
 		FCEUI_ToggleEmulationPause();
 
 	// Toggle throttling
-	if (_keyonly(DINGOO_L)) {
+	if (_keyonly(DINGOO_R2)) {
         FCEUD_TurboToggle();
     }
 /*
