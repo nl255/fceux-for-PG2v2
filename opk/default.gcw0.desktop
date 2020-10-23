@@ -1,5 +1,5 @@
 [Desktop Entry]
-Name=Fceux
+Name=Fceux for PG2v2
 Comment=NES/Famicom emulator
 Exec=fceux %f
 Terminal=false
